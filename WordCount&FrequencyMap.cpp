@@ -22,26 +22,21 @@ int TextAnalyzer::getWordCount()
         {
             word.erase(word.begin());
         }
-
         while (!word.empty() && std::ispunct(static_cast<unsigned char>(word.back())))
         {
             word.pop_back();
         }
-
         for (char& c : word)
         {
             c = std::tolower(static_cast<unsigned char>(c));
         }
-
         if (!word.empty())
         {
             count++;
         }
     }
-
     return count;
 }
-
 // FrequencyMap
 std::map<std::string, int> TextAnalyzer::getFrequencyMap()
 {
