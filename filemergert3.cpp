@@ -1,3 +1,4 @@
+#include <"FileMerge.h">
 #include <iostream>
 #include <string>
 #include <vector>
@@ -6,8 +7,6 @@
 
 using namespace std;
 
-class FileMerger {
-public:
     // Thuật toán sắp xếp cơ bản (Tấn Đông sẽ nâng cấp phần custom comparators này sau)
     static bool sortAlphabetically(const string& a, const string& b) {
         return a < b;
@@ -51,4 +50,4 @@ public:
         
         cout << "\033[32m" << "✅ Gộp tệp thành công! Vui lòng kiểm tra file: " << outputFile << "\033[0m\n";
     }
-};
+;
