@@ -1,5 +1,8 @@
 #include <iostream>
+#include <vector>
 #include <string>
+#include "Diff.h"
+#include "FileMerge.h"
 
 using namespace std;
 
@@ -20,8 +23,6 @@ const string BOLD = "\033[1m";
 class TextAnalyzer {};
 class PatternExtractor {};
 class FindAndReplaceEngine {};
-class FileDiffEngine {};
-class FileMerger {};
 class ReportExporter {};
 
 // ==========================================
@@ -80,7 +81,51 @@ public:
                     cout << YELLOW << "\n[Đang phát triển] Chờ ghép module của Tấn Đông...\n" << RESET;
                     break;
                 case 5:
+{
+    string file1, file2;
+
+    cout << BLUE << "\nNhập đường dẫn file thứ nhất: " << RESET;
+    getline(cin, file1);
+
+    cout << BLUE << "Nhập đường dẫn file thứ hai: " << RESET;
+    getline(cin, file2);
+
+    vector<DiffLine> result = diffTwoFiles(file1, file2);
+
+    printDiff(result);
+
+    break;
+}
                 case 6:
+{
+    int n;
+    cout << BLUE << "\nNhập số lượng file cần gộp: " << RESET;
+    cin >> n;
+    cin.ignore();
+
+    vector<string> inputFiles;
+
+    for (int i = 0; i < n; i++) {
+        string file;
+
+        cout << BLUE << "Nhập đường dẫn file " << i + 1 << ": " << RESET;
+        getline(cin, file);
+
+        inputFiles.push_back(file);
+    }
+
+    string outputFile;
+
+    cout << BLUE << "Nhập tên file đầu ra: " << RESET;
+    getline(cin, outputFile);
+
+    FileMerger merger;
+    merger.mergeFiles(inputFiles, outputFile);
+
+    cout << GREEN << "Đã gộp file thành công!\n" << RESET;
+
+    break;
+}
                 case 7:
                     cout << YELLOW << "\n[Đang phát triển] Các tính năng File I/O sẽ được tích hợp ở Tuần 3...\n" << RESET;
                     break;
