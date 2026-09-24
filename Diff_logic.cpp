@@ -56,15 +56,3 @@ using namespace std;
     f2.close();
     return result;
 }
-
-int main(int argc, char* argv[]) {
-    if (argc < 3) {
-        cerr << "Usage: " << argv[0] << " file1 file2\n";
-        return 1;
-    }
-
-    vector<DiffLine> diffs = diffTwoFiles(argv[1], argv[2]);
-    printDiff(diffs);
-
-    return 0;
-}
