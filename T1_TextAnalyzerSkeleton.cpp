@@ -1,4 +1,4 @@
-// Bo khung TextAnalizer
+// Bo khung TextAnalyzer. By: HoaiThuong & Tan Dong
 #ifndef TEXTANALYZER_H
 #define TEXTANALYZER_H
 
