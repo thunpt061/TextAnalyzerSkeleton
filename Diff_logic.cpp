@@ -6,6 +6,13 @@
 
 using namespace std;
 
+vector<DiffLine> diffTwoFiles(
+    const string& path1,
+    const string& path2
+) {
+    ifstream f1(path1);
+    ifstream f2(path2);
+    
     if (!f1.is_open()) {
         cerr << "Khong mo duoc file: " << path1 << "\n";
         return vector<DiffLine>();
