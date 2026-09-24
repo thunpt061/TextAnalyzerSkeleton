@@ -122,8 +122,6 @@ public:
     FileMerger merger;
     merger.mergeFiles(inputFiles, outputFile);
 
-    cout << GREEN << "Đã gộp file thành công!\n" << RESET;
-
     break;
 }
                 case 7:
