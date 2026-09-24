@@ -1,53 +1,64 @@
-#include <"FileMerge.h">
+#include "FileMerge.h"
 #include <iostream>
-#include <string>
-#include <vector>
 #include <fstream>
 #include <algorithm>
 
 using namespace std;
 
-    // Thuật toán sắp xếp cơ bản (Tấn Đông sẽ nâng cấp phần custom comparators này sau)
-    static bool sortAlphabetically(const string& a, const string& b) {
-        return a < b;
+bool FileMerger::sortAlphabetically(const string& a, const string& b) {
+    return a < b;
+}
+
+void FileMerger::mergeFiles(
+    const vector<string>& inputFiles,
+    const string& outputFile
+) {
+    vector<string> allLines;
+
+    // 1. �?c d? li?u t? t?t c? c�c file d?u v�o
+    for (const string& filename : inputFiles) {
+        ifstream inFile(filename);
+
+        if (!inFile.is_open()) {
+            cout << "\033[31m"
+                 << "Loi: Khong the mo tep " << filename
+                 << "\033[0m\n";
+            continue;
+        }
+
+        string line;
+        while (getline(inFile, line)) {
+            allLines.push_back(line);
+        }
+
+        inFile.close();
+
+        cout << "\033[32m"
+             << "Da doc thanh cong: " << filename
+             << "\033[0m\n";
     }
 
-    void mergeFiles(const vector<string>& inputFiles, const string& outputFile) {
-        vector<string> allLines;
-        
-        // 1. Đọc dữ liệu từ tất cả các file đầu vào
-        for (const string& filename : inputFiles) {
-            ifstream inFile(filename);
-            
-            if (!inFile.is_open()) {
-                cout << "\033[31m" << "❌ Lỗi: Không thể mở tệp " << filename << "\033[0m\n";
-                continue; // Bỏ qua file lỗi, tiếp tục với file khác
-            }
+    // 2. S?p x?p A-Z
+    sort(allLines.begin(), allLines.end(), sortAlphabetically);
 
-            string line;
-            while (getline(inFile, line)) {
-                allLines.push_back(line);
-            }
-            inFile.close();
-            cout << "\033[32m" << "Đã đọc thành công: " << filename << "\033[0m\n";
-        }
+    // 3. Ghi ra file m?i
+    ofstream outFile(outputFile);
 
-        // 2. Tích hợp phần sắp xếp của Tấn Đông
-        // Tạm thời dùng sắp xếp theo bảng chữ cái A-Z
-        sort(allLines.begin(), allLines.end(), sortAlphabetically);
-
-        // 3. Ghi toàn bộ dữ liệu đã gộp và sắp xếp ra file mới
-        ofstream outFile(outputFile);
-        if (!outFile.is_open()) {
-            cout << "\033[31m" << "❌ Lỗi: Không thể tạo tệp đầu ra " << outputFile << "\033[0m\n";
-            return;
-        }
-
-        for (const string& l : allLines) {
-            outFile << l << "\n";
-        }
-        outFile.close();
-        
-        cout << "\033[32m" << "✅ Gộp tệp thành công! Vui lòng kiểm tra file: " << outputFile << "\033[0m\n";
+    if (!outFile.is_open()) {
+        cout << "\033[31m"
+             << "Loi: Khong the tao tep dau ra " << outputFile
+             << "\033[0m\n";
+        return;
     }
-;
+
+    for (const string& line : allLines) {
+        outFile << line << "\n";
+    }
+
+    outFile.close();
+
+    cout << "\033[32m"
+         << "Gop tep thanh cong! Vui long kiem tra file: "
+         << outputFile
+         << "\033[0m\n";
+}
