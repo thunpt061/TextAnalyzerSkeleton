@@ -1,3 +1,7 @@
+#include "Diff.h"
+#include <iostream>
+#include <vector>
+
 void printDiff(const vector<DiffLine>& diffs) {
     cout << "\n========== DIFF RESULT ==========\n\n";
 
