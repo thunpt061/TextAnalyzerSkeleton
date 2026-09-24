@@ -57,22 +57,6 @@ using namespace std;
     return result;
 }
 
-void printDiff(const vector<DiffLine>& diffs) {
-    for (size_t i = 0; i < diffs.size(); ++i) {
-        const DiffLine& d = diffs[i];
-        if (d.type == '=') {
-            cout << "  " << d.lineNum << "  " << d.content1 << "\n";
-        } else if (d.type == '!') {
-            cout << "- " << d.lineNum << "  " << d.content1 << "\n";
-            cout << "+ " << d.lineNum << "  " << d.content2 << "\n";
-        } else if (d.type == '<') {
-            cout << "< " << d.lineNum << "  " << d.content1 << "\n";
-        } else if (d.type == '>') {
-            cout << "> " << d.lineNum << "  " << d.content2 << "\n";
-        }
-    }
-}
-
 int main(int argc, char* argv[]) {
     if (argc < 3) {
         cerr << "Usage: " << argv[0] << " file1 file2\n";
