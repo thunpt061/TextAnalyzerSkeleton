@@ -7,7 +7,7 @@
 using namespace std;
 
 // ==========================================
-// CÁC MÃ MÀU ANSI ĐỂ TRANG TRÍ MENU
+// C�C M� M�U ANSI �? TRANG TR� MENU
 // ==========================================
 const string RESET = "\033[0m";
 const string RED = "\033[31m";
@@ -18,7 +18,7 @@ const string CYAN = "\033[36m";
 const string BOLD = "\033[1m";
 
 // ==========================================
-// CÁC LỚP KHUNG (Chờ ghép code ở các tuần sau)
+// C�C L?P KHUNG (Ch? gh�p code ? c�c tu?n sau)
 // ==========================================
 class TextAnalyzer {};
 class PatternExtractor {};
@@ -26,13 +26,13 @@ class FindAndReplaceEngine {};
 class ReportExporter {};
 
 // ==========================================
-// LỚP QUẢN LÝ TỔNG (Dành cho Leader)
+// L?P QU?N L� T?NG (D�nh cho Leader)
 // ==========================================
 class TextDocumentEngine {
 private:
     string currentText;
     
-    // Khai báo các module con
+    // Khai b�o c�c module con
     TextAnalyzer analyzer;
     FindAndReplaceEngine fnrEngine;
 
@@ -44,50 +44,50 @@ public:
     void runMenu() {
         int choice = -1;
         while (choice != 0) {
-            // Giao diện Menu có màu sắc
+            // Giao di?n Menu c� m�u s?c
             cout << "\n" << CYAN << BOLD << "=====================================================" << RESET << "\n";
-            cout << CYAN << BOLD << "   🚀 TEXT DOCUMENT ANALYST ENGINE - NHÓM SỐ BỐN" << RESET << "\n";
+            cout << CYAN << BOLD << "   ?? TEXT DOCUMENT ANALYST ENGINE - NH�M S? B?N" << RESET << "\n";
             cout << CYAN << BOLD << "=====================================================" << RESET << "\n";
             
-            cout << GREEN << " 1. " << RESET << "Nhập văn bản mới (Khởi tạo bộ nhớ tạm)\n";
-            cout << GREEN << " 2. " << RESET << "Phân tích văn bản (Word Count, Frequency, N-Gram)\n";
-            cout << GREEN << " 3. " << RESET << "Trích xuất dữ liệu (Email, URL)\n";
-            cout << GREEN << " 4. " << RESET << "Tìm kiếm & Thay thế (Find & Replace)\n";
-            cout << GREEN << " 5. " << RESET << "So sánh 2 tệp (File Diff Engine)\n";
-            cout << GREEN << " 6. " << RESET << "Gộp tệp & Sắp xếp (File Merger & Sorting)\n";
-            cout << GREEN << " 7. " << RESET << "Xuất báo cáo tổng hợp (Analytics Report Exporter)\n";
-            cout << RED << " 0. " << RESET << "Thoát chương trình\n";
+            cout << GREEN << " 1. " << RESET << "Nh?p van b?n m?i (Kh?i t?o b? nh? t?m)\n";
+            cout << GREEN << " 2. " << RESET << "Ph�n t�ch van b?n (Word Count, Frequency, N-Gram)\n";
+            cout << GREEN << " 3. " << RESET << "Tr�ch xu?t d? li?u (Email, URL)\n";
+            cout << GREEN << " 4. " << RESET << "T�m ki?m & Thay th? (Find & Replace)\n";
+            cout << GREEN << " 5. " << RESET << "So s�nh 2 t?p (File Diff Engine)\n";
+            cout << GREEN << " 6. " << RESET << "G?p t?p & S?p x?p (File Merger & Sorting)\n";
+            cout << GREEN << " 7. " << RESET << "Xu?t b�o c�o t?ng h?p (Analytics Report Exporter)\n";
+            cout << RED << " 0. " << RESET << "Tho�t chuong tr�nh\n";
             
             cout << CYAN << BOLD << "=====================================================" << RESET << "\n";
-            cout << YELLOW << "Nhập lựa chọn của bạn (0-7): " << RESET;
+            cout << YELLOW << "Nh?p l?a ch?n c?a b?n (0-7): " << RESET;
             
             cin >> choice;
-            cin.ignore(); // Xóa bộ đệm phím Enter
+            cin.ignore(); // X�a b? d?m ph�m Enter
 
-            // Xử lý các lựa chọn
+            // X? l� c�c l?a ch?n
             switch (choice) {
                 case 1:
-                    cout << BLUE << "\nNhập đoạn văn bản cần xử lý: " << RESET;
+                    cout << BLUE << "\nNh?p do?n van b?n c?n x? l�: " << RESET;
                     getline(cin, currentText);
-                    cout << GREEN << "✅ Đã lưu văn bản thành công vào bộ nhớ hệ thống!\n" << RESET;
+                    cout << GREEN << "? �� luu van b?n th�nh c�ng v�o b? nh? h? th?ng!\n" << RESET;
                     break;
                 case 2:
-                    cout << YELLOW << "\n[Đang phát triển] Chờ ghép module của Thương & Lam...\n" << RESET;
+                    cout << YELLOW << "\n[�ang ph�t tri?n] Ch? gh�p module c?a Thuong & Lam...\n" << RESET;
                     break;
                 case 3:
-                    cout << YELLOW << "\n[Đang phát triển] Chờ ghép module của Đặng Vy & Nhiên...\n" << RESET;
+                    cout << YELLOW << "\n[�ang ph�t tri?n] Ch? gh�p module c?a �?ng Vy & Nhi�n...\n" << RESET;
                     break;
                 case 4:
-                    cout << YELLOW << "\n[Đang phát triển] Chờ ghép module của Tấn Đông...\n" << RESET;
+                    cout << YELLOW << "\n[�ang ph�t tri?n] Ch? gh�p module c?a T?n ��ng...\n" << RESET;
                     break;
                 case 5:
 {
     string file1, file2;
 
-    cout << BLUE << "\nNhập đường dẫn file thứ nhất: " << RESET;
+    cout << BLUE << "\nNh?p du?ng d?n file th? nh?t: " << RESET;
     getline(cin, file1);
 
-    cout << BLUE << "Nhập đường dẫn file thứ hai: " << RESET;
+    cout << BLUE << "Nh?p du?ng d?n file th? hai: " << RESET;
     getline(cin, file2);
 
     vector<DiffLine> result = diffTwoFiles(file1, file2);
@@ -99,7 +99,8 @@ public:
                 case 6:
 {
     int n;
-    cout << BLUE << "\nNhập số lượng file cần gộp: " << RESET;
+
+    cout << BLUE << "\nNh?p s? lu?ng file c?n g?p: " << RESET;
     cin >> n;
     cin.ignore();
 
@@ -108,7 +109,7 @@ public:
     for (int i = 0; i < n; i++) {
         string file;
 
-        cout << BLUE << "Nhập đường dẫn file " << i + 1 << ": " << RESET;
+        cout << BLUE << "Nh?p du?ng d?n file " << i + 1 << ": " << RESET;
         getline(cin, file);
 
         inputFiles.push_back(file);
@@ -116,7 +117,7 @@ public:
 
     string outputFile;
 
-    cout << BLUE << "Nhập tên file đầu ra: " << RESET;
+    cout << BLUE << "Nh?p t�n file d?u ra: " << RESET;
     getline(cin, outputFile);
 
     FileMerger merger;
@@ -125,13 +126,13 @@ public:
     break;
 }
                 case 7:
-                    cout << YELLOW << "\n[Đang phát triển] Các tính năng File I/O sẽ được tích hợp ở Tuần 3...\n" << RESET;
+                    cout << YELLOW << "\n[�ang ph�t tri?n] C�c t�nh nang File I/O s? du?c t�ch h?p ? Tu?n 3...\n" << RESET;
                     break;
                 case 0:
-                    cout << GREEN << "\nĐang đóng ứng dụng. Cảm ơn bạn đã sử dụng! 👋\n" << RESET;
+                    cout << GREEN << "\n�ang d�ng ?ng d?ng. C?m on b?n d� s? d?ng! ??\n" << RESET;
                     break;
                 default:
-                    cout << RED << "\n❌ Lựa chọn không hợp lệ. Vui lòng nhập số từ 0 đến 7!\n" << RESET;
+                    cout << RED << "\n? L?a ch?n kh�ng h?p l?. Vui l�ng nh?p s? t? 0 d?n 7!\n" << RESET;
             }
         }
     }
