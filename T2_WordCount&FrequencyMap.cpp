@@ -1,4 +1,5 @@
-#include "TextAnalyzer.h"
+//#include "TextAnalyzer.h"
+//TextAnalyzer.h ở đâu ?
 #include <sstream>
 #include <cctype>
 #include <map>
