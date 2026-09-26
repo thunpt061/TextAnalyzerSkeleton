@@ -5,11 +5,9 @@
 using namespace std;
 
 void printDiff(const vector<DiffLine>& diffs) {
-    cout << "\n========== DIFF RESULT ==========\n\n";
 
     if (diffs.empty()) {
         cout << "No differences found.\n";
-        cout << "\n=================================\n";
         return;
     }
 
@@ -52,6 +50,4 @@ void printDiff(const vector<DiffLine>& diffs) {
                  << "\033[0m\n";
         }
     }
-
-    cout << "\n=================================\n";
 }
