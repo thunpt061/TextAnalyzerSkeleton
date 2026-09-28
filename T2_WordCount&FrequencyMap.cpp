@@ -1,4 +1,5 @@
-#include "TextAnalyzer.h"
+#include "T1_TextAnalyzerSkeleton.cpp"
+//xoa bo tan tich file textanalyzer cu
 #include <sstream>
 #include <cctype>
 #include <map>
