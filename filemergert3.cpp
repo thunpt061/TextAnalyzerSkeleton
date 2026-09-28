@@ -2,7 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <algorithm>
-
+#include <vector>
 using namespace std;
 
 bool FileMerger::sortAlphabetically(const string& a, const string& b) {
@@ -15,7 +15,7 @@ void FileMerger::mergeFiles(
 ) {
     vector<string> allLines;
 
-    // 1. Ð?c d? li?u t? t?t c? các file d?u vào
+    // 1.doc tat ca cac file dau vao
     for (const string& filename : inputFiles) {
         ifstream inFile(filename);
 
@@ -38,10 +38,10 @@ void FileMerger::mergeFiles(
              << "\033[0m\n";
     }
 
-    // 2. S?p x?p A-Z
+    // 2. sap xep A-Z
     sort(allLines.begin(), allLines.end(), sortAlphabetically);
 
-    // 3. Ghi ra file m?i
+    // 3. ghi ra file moi
     ofstream outFile(outputFile);
 
     if (!outFile.is_open()) {
